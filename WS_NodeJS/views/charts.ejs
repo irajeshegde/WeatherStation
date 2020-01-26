@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Charts</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+    </head>
+    <body>
+    <br><br><br><br>
+	<div class="ui fixed inverted menu">
+		<div class="ui container">
+			<div class="header item"><i id="icon" class="cloud icon"></i></div>
+			<a id="brandname" href="/" class="item">WeatherStation</a>
+		</div>
+	</div>
+    <div align="center">
+        <h1>Temperature</h1>
+        <canvas id="temp" width="1000" height="500"></canvas>
+        <script>
+            var tempData = {
+                labels : [
+                    <%= result[result.length - 6].timestamp %>,
+                    <%= result[result.length - 5].timestamp %>,
+                    <%= result[result.length - 4].timestamp %>,
+                    <%= result[result.length - 3].timestamp %>,
+                    <%= result[result.length - 2].timestamp %>,
+                    <%= result[result.length - 1].timestamp %>
+                    ],
+                datasets : [
+                {
+                    fillColor : "rgba(172,194,132,0.4)",
+                    strokeColor : "#ACC26D",
+                    pointColor : "#fff",
+                    pointStrokeColor : "#9DB86D",
+                    data : [
+                    <%= result[result.length - 6].temperature %>,
+                    <%= result[result.length - 5].temperature %>,
+                    <%= result[result.length - 4].temperature %>,
+                    <%= result[result.length - 3].temperature %>,
+                    <%= result[result.length - 2].temperature %>,
+                    <%= result[result.length - 1].temperature %>
+                    ]
+                }
+            ]
+            }
+            // get line chart canvas
+            var temps = document.getElementById('temp').getContext('2d');
+            // draw line chart
+            new Chart(temps).Line(tempData);
+        </script>
+        <br><br><br><br>
+        <h1>Humidity</h1>
+        <canvas id="hum" width="1000" height="500"></canvas>
+        <script>
+            var humData = {
+                labels : [
+                    <%= result[result.length - 6].timestamp %>,
+                    <%= result[result.length - 5].timestamp %>,
+                    <%= result[result.length - 4].timestamp %>,
+                    <%= result[result.length - 3].timestamp %>,
+                    <%= result[result.length - 2].timestamp %>,
+                    <%= result[result.length - 1].timestamp %>
+                    ],
+                datasets : [
+                {
+                    fillColor : "rgba(300,134,121,0.3)",
+                    strokeColor : "#FC8283",
+                    pointColor : "#fff",
+                    pointStrokeColor : "#FB4273",
+                    data : [
+                    <%= result[result.length - 6].humidity/2 %>,
+                    <%= result[result.length - 5].humidity/2 %>,
+                    <%= result[result.length - 4].humidity/2%>,
+                    <%= result[result.length - 3].humidity/2 %>,
+                    <%= result[result.length - 2].humidity/2 %>,
+                    <%= result[result.length - 1].humidity/2 %>
+                    ]
+                }
+            ]
+            }
+            // get line chart canvas
+            var hums = document.getElementById('hum').getContext('2d');
+            // draw line chart
+            new Chart(hums).Line(humData);
+        </script>
+        <br><br><br><br>
+        <h1>Air Quality</h1>
+        <canvas id="air" width="1000" height="500"></canvas>
+        <script>
+            var airData = {
+                labels : [
+                    <%= result[result.length - 6].timestamp %>,
+                    <%= result[result.length - 5].timestamp %>,
+                    <%= result[result.length - 4].timestamp %>,
+                    <%= result[result.length - 3].timestamp %>,
+                    <%= result[result.length - 2].timestamp %>,
+                    <%= result[result.length - 1].timestamp %>
+                    ],
+                datasets : [
+                {
+                    fillColor : "rgba(152,104,200,0.4)",
+                    strokeColor : "#97CFCD",
+                    pointColor : "#fff",
+                    pointStrokeColor : "#35CBCF",
+                    data : [
+                    <%= result[result.length - 6].airquality %>,
+                    <%= result[result.length - 5].airquality %>,
+                    <%= result[result.length - 4].airquality %>,
+                    <%= result[result.length - 3].airquality %>,
+                    <%= result[result.length - 2].airquality %>,
+                    <%= result[result.length - 1].airquality %>
+                    ]
+                }
+            ]
+            }
+            // get line chart canvas
+            var airs = document.getElementById('air').getContext('2d');
+            // draw line chart
+            new Chart(airs).Line(airData);
+        </script>
+        <br><br><br>
+    </div>
+	</body>
+</html>

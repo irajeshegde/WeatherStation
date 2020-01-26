@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WeatherStation</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+    <br><br><br><br>
+	<div class="ui fixed inverted menu">
+		<div class="ui container">
+			<div class="header item"><i id="icon" class="cloud icon"></i></div>
+			<a id="brandname" href="/" class="item">WeatherStation</a>
+		</div>
+	</div>
+    <div align="center">
+        <div class="ui raised very padded text container segment">
+        <h1 class="ui header">Welcome to WeatherStation</h1>
+        <h4> Last update -
+        <%=result.timestamp[8]+result.timestamp[9]%>:
+        <%=result.timestamp[10]+result.timestamp[11]%>:
+        <%=result.timestamp[12]+result.timestamp[13]%>(TIME)
+        <%=result.timestamp[6]+result.timestamp[7]%> -
+        <%=result.timestamp[4]+result.timestamp[5]%> -
+        <%=result.timestamp[0]+result.timestamp[1]+result.timestamp[2]+result.timestamp[3]%>(DATE)
+        <br><br>
+        <a href="/" class="ui inverted secondary button"><i class="sync icon"></i>Refresh</a>
+        </h4>
+            <div>
+                <%if(result.temperature>=19 && result.temperature <24){%>
+                    <i id="bigicon" class="thermometer empty icon"></i>
+                <%}%>
+                <%if(result.temperature>=24 && result.temperature <27){%>
+                    <i id="bigicon" class="thermometer half icon"></i>
+                <%}%>
+                <%if(result.temperature>=27 && result.temperature <35){%>
+                    <i id="bigicon" class="thermometer full icon"></i>
+                <%}%>
+            </div>
+            <h3>Temperature - <%=result.temperature %>℃ , Humidity - <%=result.humidity%>%</h3>
+            <h3>Airquality value - <%=result.airquality/2%></h3>
+            <% if (result.airquality / 2 > 0 && result.airquality / 2 < 101 && result.temperature >= 20 && result.humidity <= 75) { %>
+                <p>Good air, Perfect Weather</p>
+            <% } %>
+            <% if (result.airquality / 2 > 101 && result.airquality / 2 < 401 && result.temperature >= 20 && result.humidity <= 75) { %>
+                <p>Moderate air, Nice Weather</p>
+            <% } %>
+            <% if (result.airquality / 2 > 401 && result.airquality / 2 < 501 && result.temperature >= 20 && result.humidity <= 75) { %>
+                <p>Hazardous air, Unplesent Weather</p>
+            <% }%>
+                <h4>Have a good day :-)</h4>
+         <br><br>
+         <a href="/charts" class="ui inverted secondary button">Generate Charts</a>
+        </div>
+    </div>
+	</body>
+</html>
