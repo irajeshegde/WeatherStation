@@ -1,4 +1,5 @@
 # WeatherStation
+![WeatherStation Logo](https://github.com/irajeshegde/WeatherStation/blob/master/assets/logo.jpg)
 
 Live Weather Station done using ESP8266, NodeJS and MongoDB
 
