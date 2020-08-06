@@ -1,5 +1,5 @@
 # WeatherStation
-![WeatherStation Logo](https://github.com/irajeshegde/WeatherStation/blob/master/assets/logo.jpg){:height="400px" width="400px"}
+![WeatherStation Logo](https://github.com/irajeshegde/WeatherStation/blob/master/assets/logo.jpg){:height="200px" width="200px"}
 Webiste: https://tqb.li2.in/rajesh-hegde/
 
 
