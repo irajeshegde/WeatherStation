@@ -1,6 +1,8 @@
 # WeatherStation
-<img src="https://github.com/irajeshegde/WeatherStation/blob/master/assets/logo.jpg" width="40%">.
-Webiste: https://tqb.li2.in/rajesh-hegde/
+<img src="https://github.com/irajeshegde/WeatherStation/blob/master/assets/logo.jpg" width="40%"
+
+
+#### Webiste: https://tqb.li2.in/rajesh-hegde/
 
 
 Live Weather Station done using ESP8266, NodeJS and MongoDB
